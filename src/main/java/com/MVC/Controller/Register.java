@@ -48,7 +48,7 @@ public class Register extends HttpServlet{
 				
 				
 			}
-			else if(req.getParameter("Login")!=null) {
+			else if(req.getParameter("Login")!=null || req.getParameter("login")!=null) {
 				String email=req.getParameter("email");
 				String password=req.getParameter("password");
 				
@@ -71,8 +71,6 @@ public class Register extends HttpServlet{
 					rd.forward(req, resp);
 				}
 				
-		
-			}
 			else if(req.getParameter("Logout")!=null) {
 				session.invalidate();
 				resp.sendRedirect("Home1.jsp");
