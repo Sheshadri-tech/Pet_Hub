@@ -48,7 +48,7 @@ public class Register extends HttpServlet{
 				
 				
 			}
-			else if(req.getParameter("login")!=null) {
+			else if(req.getParameter("Login")!=null) {
 				String email=req.getParameter("email");
 				String password=req.getParameter("password");
 				

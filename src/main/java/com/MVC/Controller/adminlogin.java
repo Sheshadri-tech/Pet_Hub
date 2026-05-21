@@ -19,7 +19,7 @@ public class adminlogin extends HttpServlet{
 		HttpSession session = req.getSession();
 		Admin admin = new Admin(session);
 		
-		 if(req.getParameter("login")!=null) {
+		 if(req.getParameter("Login")!=null) {
 				String email=req.getParameter("email");
 				String password=req.getParameter("password");
 				

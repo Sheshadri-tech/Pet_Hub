@@ -16,9 +16,18 @@ public class Admin {
 	HttpSession se;
 	public Admin(HttpSession session) {
 		try {
+			String host = System.getenv("DB_HOST");
+			String port = System.getenv("DB_PORT");
+			String dbName = System.getenv("DB_NAME");
+			String user = System.getenv("DB_USER");
+			String password = System.getenv("DB_PASSWORD");
+
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3307/PetHub","root","tiger@01" );
-			se=session;
+
+			String url = "jdbc:mysql://" + host + ":" + port + "/" + dbName
+			        + "?useSSL=true&requireSSL=true&serverTimezone=UTC";
+
+			con = DriverManager.getConnection(url, user, password);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
