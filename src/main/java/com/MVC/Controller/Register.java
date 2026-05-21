@@ -73,7 +73,7 @@ public class Register extends HttpServlet{
 				
 		
 			}
-			else if(req.getParameter("logout")!=null) {
+			else if(req.getParameter("Logout")!=null) {
 				session.invalidate();
 				resp.sendRedirect("Home1.jsp");
 			}
@@ -87,12 +87,12 @@ public class Register extends HttpServlet{
 					session.setAttribute("phone", phone);
 					session.setAttribute("email", email);
 					req.setAttribute("status", "Profile Updated Successfully");
-					RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+					RequestDispatcher rd = req.getRequestDispatcher("Home1.jsp");
 					rd.forward(req, resp);
 				}
 				else if(status.equals("failure")){
 					req.setAttribute("status", "Failed to Update Profile");
-					RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+					RequestDispatcher rd = req.getRequestDispatcher("Home1.jsp");
 					rd.forward(req, resp);
 				}
 			}
