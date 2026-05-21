@@ -14,23 +14,25 @@ public class Registration {
 	private Connection con;
 	HttpSession se;
 	public Registration(HttpSession session) {
-		try {
-			String host = System.getenv("DB_HOST");
-			String port = System.getenv("DB_PORT");
-			String dbName = System.getenv("DB_NAME");
-			String user = System.getenv("DB_USER");
-			String password = System.getenv("DB_PASSWORD");
+	    this.se = session;
 
-			Class.forName("com.mysql.cj.jdbc.Driver");
+	    try {
+	        String host = System.getenv("DB_HOST");
+	        String port = System.getenv("DB_PORT");
+	        String dbName = System.getenv("DB_NAME");
+	        String user = System.getenv("DB_USER");
+	        String password = System.getenv("DB_PASSWORD");
 
-			String url = "jdbc:mysql://" + host + ":" + port + "/" + dbName
-			        + "?useSSL=true&requireSSL=true&serverTimezone=UTC";
+	        Class.forName("com.mysql.cj.jdbc.Driver");
 
-			con = DriverManager.getConnection(url, user, password);
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	        String url = "jdbc:mysql://" + host + ":" + port + "/" + dbName
+	                + "?useSSL=true&requireSSL=true&serverTimezone=UTC";
+
+	        con = DriverManager.getConnection(url, user, password);
+
+	    } catch (ClassNotFoundException | SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
 	public String registration(String name,String phone,String email,String password) {
 		PreparedStatement ps=null;
