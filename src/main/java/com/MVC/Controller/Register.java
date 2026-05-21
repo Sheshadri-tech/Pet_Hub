@@ -141,10 +141,20 @@ public class Register extends HttpServlet {
 
                 }
             }
+            else {
+
+                System.out.println("No matching action found");
+                System.out.println("Parameters: " + req.getParameterMap().keySet());
+
+                resp.sendRedirect("Login.jsp");
+
+            }
 
         }
+        
+       
         catch(Exception e) {
-
+        		
             e.printStackTrace();
 
         }
